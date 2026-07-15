@@ -3,7 +3,8 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Wedding Invite",
-  description: "A pastel pink nikah invitation with a warm mobile-first experience.",
+  description:
+    "A graceful nikah invitation for family and friends, thoughtfully designed to share the wedding details with warmth, elegance, and ease.",
   icons: {
     icon: "/icon.svg",
     shortcut: "/icon.svg",
