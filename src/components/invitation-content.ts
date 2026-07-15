@@ -31,12 +31,12 @@ export const promises = [
 
 export const schedule = [
   {
-    time: "5:30 PM",
+    time: "3:30 PM",
     title: "Guests arrive",
     text: "Welcome drinks, florals, and a soft instrumental arrival.",
   },
   {
-    time: "6:15 PM",
+    time: "4:00 PM",
     title: "Nikah begins",
     text: "The ceremony, khutbah, and the official acceptance.",
   },
