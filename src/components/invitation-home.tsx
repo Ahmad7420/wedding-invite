@@ -5,9 +5,22 @@ import { InvitationDetailsSection } from "@/components/invitation-details-sectio
 import { InvitationHeroSection } from "@/components/invitation-hero-section";
 import { InvitationLocationRsvpSection } from "@/components/invitation-location-rsvp-section";
 import { InvitationOpeningOverlay } from "@/components/invitation-opening-overlay";
+import { WeddingRingsSection } from "@/components/wedding-rings/wedding-rings-section";
 
 export function InvitationHome() {
   const [isOpened, setIsOpened] = useState(false);
+
+  useEffect(() => {
+    const originalOverflow = document.body.style.overflow;
+
+    if (!isOpened) {
+      document.body.style.overflow = "hidden";
+    }
+
+    return () => {
+      document.body.style.overflow = originalOverflow;
+    };
+  }, [isOpened]);
 
   useEffect(() => {
     if (!isOpened) {
@@ -34,15 +47,19 @@ export function InvitationHome() {
   }, [isOpened]);
 
   return (
-    <div className="relative overflow-x-hidden">
+    <div className="relative isolate overflow-x-clip">
       <InvitationOpeningOverlay isOpened={isOpened} onOpen={() => setIsOpened(true)} />
+      <WeddingRingsSection />
 
       <main
-        className={`transition-opacity duration-700 ${isOpened ? "opacity-100" : "opacity-40"}`}
+        className={`relative z-10 transition-opacity duration-700 ${
+          isOpened ? "opacity-100" : "opacity-40"
+        }`}
       >
         <InvitationHeroSection />
         <InvitationDetailsSection />
         <InvitationLocationRsvpSection />
+        <footer aria-hidden="true" className="h-[24svh] min-h-40" />
       </main>
     </div>
   );

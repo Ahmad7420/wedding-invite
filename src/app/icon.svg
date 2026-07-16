@@ -1,23 +1,23 @@
 <svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <radialGradient id="bg" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(180 132) rotate(51.5) scale(360)">
-      <stop offset="0" stop-color="#FFF9F3" />
-      <stop offset="0.4" stop-color="#F7E3D0" />
-      <stop offset="0.74" stop-color="#E4B78F" />
-      <stop offset="1" stop-color="#BF8557" />
+      <stop offset="0" stop-color="#FFFAF1" />
+      <stop offset="0.4" stop-color="#F2E7D3" />
+      <stop offset="0.74" stop-color="#DEC58A" />
+      <stop offset="1" stop-color="#A97F35" />
     </radialGradient>
     <linearGradient id="edge" x1="80" y1="62" x2="426" y2="452" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#FFF4E7" />
-      <stop offset="0.32" stop-color="#EBC69F" />
-      <stop offset="0.68" stop-color="#B9784A" />
-      <stop offset="1" stop-color="#86512E" />
+      <stop offset="0" stop-color="#F8EBCF" />
+      <stop offset="0.32" stop-color="#DEC58A" />
+      <stop offset="0.68" stop-color="#A97F35" />
+      <stop offset="1" stop-color="#6F4E20" />
     </linearGradient>
   </defs>
   <rect width="512" height="512" rx="256" fill="url(#bg)" />
   <circle cx="256" cy="256" r="224" stroke="url(#edge)" stroke-width="22" />
-  <circle cx="256" cy="256" r="188" stroke="#FFF8EF" stroke-opacity="0.82" stroke-width="7" />
-  <circle cx="256" cy="256" r="162" stroke="#9B6039" stroke-opacity="0.45" stroke-width="7" stroke-dasharray="8 18" stroke-linecap="round" />
-  <path d="M152 118C182 96 218 84 256 84C313 84 366 111 403 157" stroke="#FFF8EF" stroke-opacity="0.9" stroke-width="20" stroke-linecap="round" />
-  <text x="256" y="286" text-anchor="middle" fill="#6F4029" font-family="Georgia, 'Times New Roman', serif" font-size="176" font-style="italic" font-weight="600" letter-spacing="8">AS</text>
-  <text x="256" y="356" text-anchor="middle" fill="#8D5A38" font-family="'Segoe UI', Arial, sans-serif" font-size="26" letter-spacing="12">NIKAH</text>
+  <circle cx="256" cy="256" r="188" stroke="#FFFAF1" stroke-opacity="0.84" stroke-width="7" />
+  <circle cx="256" cy="256" r="162" stroke="#8D682C" stroke-opacity="0.52" stroke-width="7" stroke-dasharray="8 18" stroke-linecap="round" />
+  <path d="M152 118C182 96 218 84 256 84C313 84 366 111 403 157" stroke="#FFFAF1" stroke-opacity="0.9" stroke-width="20" stroke-linecap="round" />
+  <text x="256" y="286" text-anchor="middle" fill="#531D2D" font-family="Georgia, 'Times New Roman', serif" font-size="176" font-style="italic" font-weight="600" letter-spacing="8">AS</text>
+  <text x="256" y="356" text-anchor="middle" fill="#742B3F" font-family="'Segoe UI', Arial, sans-serif" font-size="26" letter-spacing="12">NIKAH</text>
 </svg>
