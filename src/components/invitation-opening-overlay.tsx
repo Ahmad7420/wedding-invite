@@ -31,7 +31,7 @@ export function InvitationOpeningOverlay({
         }`}
       />
 
-      <div className="absolute inset-3 z-10 sm:inset-7">
+      <div className="absolute inset-y-1 left-1/2 z-10 w-[calc(100%-0.75rem)] max-w-[64rem] -translate-x-1/2 sm:inset-y-3 sm:w-[calc(100%-1.5rem)]">
         <RoyalArchFrame isOpening={isOpened} />
       </div>
 

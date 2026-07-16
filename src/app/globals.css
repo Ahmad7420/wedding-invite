@@ -164,6 +164,69 @@ textarea {
   filter: drop-shadow(0 0 24px rgba(222, 197, 138, 0.66));
 }
 
+.royal-botanical {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.royal-botanical-crown {
+  animation: royal-floral-crown-float 6s ease-in-out infinite alternate;
+}
+
+.royal-botanical-left,
+.royal-botanical-right {
+  animation: royal-floral-side-float 7s ease-in-out infinite alternate;
+}
+
+.royal-botanical-right {
+  animation-delay: -3.5s;
+  animation-direction: alternate-reverse;
+}
+
+.royal-floating-petal {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: royal-petal-drift 5s ease-in-out infinite alternate;
+}
+
+.royal-floating-petal-two,
+.royal-floating-petal-four {
+  animation-delay: -2.5s;
+  animation-direction: alternate-reverse;
+}
+
+@keyframes royal-floral-crown-float {
+  from {
+    transform: translate3d(0, 0, 0) rotate(-0.25deg);
+  }
+
+  to {
+    transform: translate3d(0, 2px, 0) rotate(0.35deg);
+  }
+}
+
+@keyframes royal-floral-side-float {
+  from {
+    transform: translate3d(0, -2px, 0) rotate(-0.3deg);
+  }
+
+  to {
+    transform: translate3d(0, 3px, 0) rotate(0.45deg);
+  }
+}
+
+@keyframes royal-petal-drift {
+  from {
+    translate: 0 -2px;
+    rotate: -2deg;
+  }
+
+  to {
+    translate: 3px 3px;
+    rotate: 3deg;
+  }
+}
+
 .royal-seal-aura {
   border: 1px solid rgba(222, 197, 138, 0.44);
   box-shadow:
@@ -217,6 +280,11 @@ textarea {
 
   .royal-arch-frame {
     transition: none;
+  }
+
+  .royal-botanical,
+  .royal-floating-petal {
+    animation: none;
   }
 
   .royal-seal-aura {
