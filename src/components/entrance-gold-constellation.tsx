@@ -8,7 +8,7 @@ export function EntranceGoldConstellation({
   return (
     <div
       aria-hidden="true"
-      className={`entrance-constellation-field pointer-events-none absolute inset-0 z-[18] overflow-hidden ${
+      className={`entrance-constellation-field pointer-events-none absolute inset-0 z-18 overflow-hidden ${
         isOpening ? "is-opening" : ""
       }`}
     >

@@ -180,7 +180,7 @@ textarea {
 .constellation-network {
   transform-box: fill-box;
   transform-origin: center;
-  animation: constellation-drift 10s ease-in-out infinite alternate;
+  animation: constellation-drift 8.5s ease-in-out infinite alternate;
 }
 
 .constellation-network-right {
@@ -189,10 +189,10 @@ textarea {
 }
 
 .constellation-particle {
-  opacity: 0.72;
+  opacity: 0.8;
   transform-box: fill-box;
   transform-origin: center;
-  animation: constellation-particle-float 6.4s ease-in-out infinite alternate;
+  animation: constellation-particle-float 5.8s ease-in-out infinite alternate;
 }
 
 .constellation-particle-b {
@@ -230,21 +230,21 @@ textarea {
 
 @keyframes constellation-drift {
   from {
-    transform: translate3d(-2px, -4px, 0) rotate(-0.2deg);
+    transform: translate3d(-6px, -10px, 0) rotate(-0.45deg);
   }
 
   to {
-    transform: translate3d(4px, 6px, 0) rotate(0.3deg);
+    transform: translate3d(8px, 12px, 0) rotate(0.55deg);
   }
 }
 
 @keyframes constellation-particle-float {
   from {
-    transform: translate3d(-2px, -4px, 0);
+    transform: translate3d(-4px, -7px, 0);
   }
 
   to {
-    transform: translate3d(3px, 5px, 0);
+    transform: translate3d(6px, 9px, 0);
   }
 }
 
