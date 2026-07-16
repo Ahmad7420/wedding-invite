@@ -27,8 +27,8 @@ export default function WeddingRingsBackground() {
           }}
           onCreated={({ gl }) => {
             gl.setClearColor(0x000000, 0);
-            gl.toneMapping = THREE.ACESFilmicToneMapping;
-            gl.toneMappingExposure = 1.05;
+            gl.toneMapping = THREE.AgXToneMapping;
+            gl.toneMappingExposure = 1.12;
           }}
         >
           <WeddingRingsScene progress={scrollYProgress} />

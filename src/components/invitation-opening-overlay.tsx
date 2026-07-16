@@ -1,4 +1,5 @@
 import { ASMonogramSeal } from "@/components/as-monogram-seal";
+import { EntranceGoldConstellation } from "@/components/entrance-gold-constellation";
 import { basmalaText } from "@/components/invitation-content";
 import { RoyalArchFrame } from "@/components/royal-arch-frame";
 
@@ -31,9 +32,11 @@ export function InvitationOpeningOverlay({
         }`}
       />
 
-      <div className="absolute inset-y-1 left-1/2 z-10 w-[calc(100%-0.75rem)] max-w-[64rem] -translate-x-1/2 sm:inset-y-3 sm:w-[calc(100%-1.5rem)]">
+      <div className="absolute inset-3 z-10 sm:inset-7">
         <RoyalArchFrame isOpening={isOpened} />
       </div>
+
+      <EntranceGoldConstellation isOpening={isOpened} />
 
       <div
         className={`relative z-20 flex min-h-svh items-center justify-center px-10 py-7 text-center transition duration-500 motion-reduce:duration-0 sm:px-14 sm:py-10 ${
