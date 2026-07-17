@@ -60,42 +60,28 @@ export function InvitationOpeningOverlay({
             In the name of Allah, the Most Compassionate, the Most Merciful
           </p>
 
+          <div className="mt-4 max-w-md space-y-1.5 sm:mt-5">
+            <p className="text-[0.62rem] uppercase leading-5 tracking-[0.2em] text-[#f3dda7] sm:text-xs sm:tracking-[0.22em]">
+              Mr. Abdul Rahiman &amp; Mrs. Sajida Abdul Rahiman
+            </p>
+            <p className="text-[0.54rem] uppercase leading-5 tracking-[0.18em] text-[#f2e7d3]/82 sm:text-[0.68rem] sm:tracking-[0.2em]">
+              invite you to the Nikah ceremonies of their sons
+            </p>
+          </div>
+
           <div className="my-4 flex items-center gap-3 sm:my-6">
             <span className="h-px w-12 bg-linear-to-r from-transparent to-[#c3a05a]/75" />
             <span className="h-1.5 w-1.5 rotate-45 border border-[#dec58a]" />
             <span className="h-px w-12 bg-linear-to-l from-transparent to-[#c3a05a]/75" />
           </div>
 
-          <div className="opening-couples space-y-2 sm:space-y-3">
-            {couples.map((couple, index) => (
-              <div key={couple.bride}>
-                {index > 0 && (
-                  <p className="mb-2 text-[0.5rem] uppercase tracking-[0.4em] text-[#f2e7d3]/72 sm:mb-3 sm:text-[0.55rem]">
-                    and
-                  </p>
-                )}
-                <div className="opening-couple">
-                  <p className="font-display text-[1.45rem] leading-[0.94] text-[#dec58a] sm:text-[2rem]">
-                    <span className="block">{couple.groom}</span>
-                    <span
-                      aria-hidden="true"
-                      lang="ar"
-                      className="my-0.5 block font-serif text-[0.72rem] leading-none text-[#f2e7d3]/75 sm:my-1 sm:text-base"
-                    >
-                      و
-                    </span>
-                    <span className="sr-only">and</span>
-                    <span className="block">{couple.bride}</span>
-                  </p>
-                  <div className="mt-1.5 sm:mt-2">
-                    <p className="text-[0.42rem] uppercase tracking-[0.3em] text-[#dec58a]/78 sm:text-[0.5rem]">
-                      Daughter of
-                    </p>
-                    <p className="mt-0.5 text-[0.56rem] leading-4 tracking-[0.08em] text-[#f2e7d3]/78 sm:text-[0.66rem]">
-                      {couple.brideParents}
-                    </p>
-                  </div>
-                </div>
+          <div className="opening-couples space-y-2.5 sm:space-y-3">
+            {couples.map((couple) => (
+              <div key={couple.bride} className="opening-couple">
+                <p className="whitespace-nowrap font-display text-[1.45rem] leading-none text-[#dec58a] sm:text-[2rem]">
+                  {couple.groom} <span aria-hidden="true">&amp;</span>
+                  <span className="sr-only"> and </span> {couple.bride}
+                </p>
               </div>
             ))}
           </div>
