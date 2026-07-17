@@ -2,9 +2,12 @@
 
 import { useEffect, useState } from "react";
 import { InvitationDetailsSection } from "@/components/invitation-details-section";
+import { InvitationClosingSection } from "@/components/invitation-closing-section";
 import { InvitationHeroSection } from "@/components/invitation-hero-section";
 import { InvitationLocationRsvpSection } from "@/components/invitation-location-rsvp-section";
 import { InvitationOpeningOverlay } from "@/components/invitation-opening-overlay";
+import { RoyalDateSection } from "@/components/royal-date-section";
+import { SectionDivider } from "@/components/section-divider";
 import { WeddingRingsSection } from "@/components/wedding-rings/wedding-rings-section";
 
 export function InvitationHome() {
@@ -57,9 +60,13 @@ export function InvitationHome() {
         }`}
       >
         <InvitationHeroSection />
+        <SectionDivider />
+        <RoyalDateSection />
+        <SectionDivider />
         <InvitationDetailsSection />
+        <SectionDivider />
         <InvitationLocationRsvpSection />
-        <footer aria-hidden="true" className="h-[24svh] min-h-40" />
+        <InvitationClosingSection />
       </main>
     </div>
   );

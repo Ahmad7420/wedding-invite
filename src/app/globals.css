@@ -67,6 +67,102 @@ textarea {
     var(--shadow);
 }
 
+.royal-card {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    translate 320ms cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 320ms ease,
+    border-color 320ms ease,
+    box-shadow 320ms ease;
+}
+
+.royal-card::before {
+  position: absolute;
+  top: 0;
+  left: 12%;
+  width: 76%;
+  height: 1px;
+  content: "";
+  background: linear-gradient(90deg, transparent, rgba(222, 197, 138, 0.86), transparent);
+  opacity: 0.34;
+  transition: opacity 320ms ease;
+}
+
+.royal-chapter {
+  color: #fffaf1;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(222, 197, 138, 0.14), transparent 38%),
+    linear-gradient(
+      145deg,
+      rgba(116, 43, 63, 0.72) 0%,
+      rgba(83, 29, 45, 0.7) 58%,
+      rgba(62, 20, 33, 0.74) 100%
+    );
+  box-shadow:
+    inset 0 1px 0 rgba(243, 221, 167, 0.28),
+    inset 0 -1px 0 rgba(243, 221, 167, 0.16),
+    0 24px 70px rgba(83, 29, 45, 0.16);
+}
+
+.royal-pattern {
+  transform-origin: center;
+  animation: royal-pattern-drift 22s ease-in-out infinite alternate;
+}
+
+.royal-countdown-unit {
+  border: 1px solid rgba(222, 197, 138, 0.28);
+  background: rgba(62, 20, 33, 0.34);
+  backdrop-filter: blur(3px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 250, 241, 0.1),
+    0 14px 35px rgba(35, 10, 18, 0.16);
+}
+
+.royal-input {
+  border: 1px solid rgba(195, 160, 90, 0.38);
+  background: rgba(255, 250, 241, 0.7);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.54);
+  transition:
+    border-color 180ms ease,
+    background-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.royal-input:focus {
+  border-color: rgba(116, 43, 63, 0.75);
+  background: rgba(255, 250, 241, 0.92);
+  box-shadow:
+    0 0 0 3px rgba(222, 197, 138, 0.36),
+    inset 0 1px 0 rgba(255, 255, 255, 0.62);
+}
+
+@media (hover: hover) {
+  .royal-card:hover {
+    translate: 0 -3px;
+    background-color: rgba(255, 250, 241, 0.42);
+    border-color: rgba(195, 160, 90, 0.46);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 250, 241, 0.42),
+      0 34px 86px rgba(83, 29, 45, 0.16);
+  }
+
+  .royal-card:hover::before {
+    opacity: 0.82;
+  }
+}
+
+@keyframes royal-pattern-drift {
+  from {
+    transform: translate3d(-0.45%, -0.6%, 0) scale(1.015);
+  }
+
+  to {
+    transform: translate3d(0.55%, 0.7%, 0) scale(1.035);
+  }
+}
+
 .rose-button {
   background: linear-gradient(135deg, var(--burgundy) 0%, var(--burgundy-deep) 100%);
   color: #fffaf1;
@@ -415,6 +511,15 @@ textarea {
 
   .royal-seal-aura {
     animation: none;
+  }
+
+  .royal-pattern {
+    animation: none;
+  }
+
+  .royal-card {
+    translate: none;
+    transition: none;
   }
 
 }
