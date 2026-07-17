@@ -16,18 +16,18 @@ export function InvitationOpeningOverlay({
     <div
       aria-hidden={isOpened}
       className={`pointer-events-auto fixed inset-0 z-50 transition-opacity duration-500 motion-reduce:delay-0 motion-reduce:duration-0 ${
-        isOpened ? "pointer-events-none opacity-0 delay-[1050ms]" : "opacity-100 delay-0"
+        isOpened ? "pointer-events-none opacity-0 delay-1050" : "opacity-100 delay-0"
       }`}
     >
       <div className="royal-entrance-background absolute inset-0" />
 
       <div
-        className={`royal-door royal-door-left absolute inset-y-0 left-0 w-1/2 origin-left border-r border-[#c3a05a]/20 shadow-[18px_0_50px_rgba(62,20,33,0.3)] transition-transform duration-[1400ms] ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:duration-0 ${
+        className={`royal-door royal-door-left absolute inset-y-0 left-0 w-1/2 origin-left border-r border-[#c3a05a]/20 shadow-[18px_0_50px_rgba(62,20,33,0.3)] transition-transform duration-1400 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:duration-0 ${
           isOpened ? "-translate-x-full" : "translate-x-0"
         }`}
       />
       <div
-        className={`royal-door royal-door-right absolute inset-y-0 right-0 w-1/2 origin-right border-l border-[#c3a05a]/20 shadow-[-18px_0_50px_rgba(62,20,33,0.34)] transition-transform duration-[1400ms] ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:duration-0 ${
+        className={`royal-door royal-door-right absolute inset-y-0 right-0 w-1/2 origin-right border-l border-[#c3a05a]/20 shadow-[-18px_0_50px_rgba(62,20,33,0.34)] transition-transform duration-1400 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:duration-0 ${
           isOpened ? "translate-x-full" : "translate-x-0"
         }`}
       />
@@ -61,9 +61,9 @@ export function InvitationOpeningOverlay({
           </p>
 
           <div className="my-4 flex items-center gap-3 sm:my-6">
-            <span className="h-px w-12 bg-gradient-to-r from-transparent to-[#c3a05a]/75" />
+            <span className="h-px w-12 bg-linear-to-r from-transparent to-[#c3a05a]/75" />
             <span className="h-1.5 w-1.5 rotate-45 border border-[#dec58a]" />
-            <span className="h-px w-12 bg-gradient-to-l from-transparent to-[#c3a05a]/75" />
+            <span className="h-px w-12 bg-linear-to-l from-transparent to-[#c3a05a]/75" />
           </div>
 
           <div className="space-y-2 sm:space-y-3">
@@ -72,7 +72,7 @@ export function InvitationOpeningOverlay({
             </p>
             <p className="text-[0.55rem] uppercase tracking-[0.4em] text-[#f2e7d3]/72">and</p>
             <p className="font-display text-[1.75rem] leading-none text-[#dec58a] sm:text-[2.35rem]">
-              Aslam <span className="text-[#fffaf1]">&amp;</span> Shahdiya
+              Aslam <span className="text-[#fffaf1]">&amp;</span> Shahadiya
             </p>
           </div>
 
