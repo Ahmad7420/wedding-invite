@@ -67,7 +67,7 @@ export function InvitationLocationRsvpSection() {
               </p>
             </div>
 
-            <span className="rose-button mt-6 inline-flex min-h-12 items-center justify-center rounded-full px-6 text-sm font-semibold uppercase tracking-[0.18em]">
+            <span className="rose-button mt-6 flex min-h-12 w-full items-center justify-center rounded-full px-6 text-center text-sm font-semibold uppercase tracking-[0.18em]">
               Open in Google Maps
             </span>
           </div>
