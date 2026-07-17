@@ -249,23 +249,97 @@ textarea {
 }
 
 .royal-seal-aura {
-  border: 1px solid rgba(222, 197, 138, 0.44);
+  border: 1px solid rgba(243, 221, 167, 0.68);
   box-shadow:
-    0 0 0 9px rgba(195, 160, 90, 0.06),
-    0 0 34px rgba(222, 197, 138, 0.36);
-  animation: royal-seal-breathe 3.2s ease-in-out infinite;
+    0 0 0 9px rgba(195, 160, 90, 0.09),
+    0 0 42px rgba(222, 197, 138, 0.46);
+  animation: royal-seal-glow 2.8s ease-in-out infinite;
 }
 
-@keyframes royal-seal-breathe {
+.opening-seal-button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.opening-seal-visual {
+  animation:
+    royal-seal-arrive 850ms cubic-bezier(0.22, 1, 0.36, 1) both,
+    royal-seal-float 3.8s ease-in-out 950ms infinite;
+}
+
+.opening-seal-intro-ring {
+  border: 1px solid rgba(243, 221, 167, 0.82);
+  box-shadow: 0 0 24px rgba(222, 197, 138, 0.44);
+  animation: royal-seal-ring-expand 950ms ease-out 180ms both;
+}
+
+.opening-seal-caption {
+  opacity: 0;
+  transform: translateY(5px);
+  animation: royal-seal-caption-reveal 500ms ease-out 720ms forwards;
+}
+
+@keyframes royal-seal-arrive {
+  from {
+    opacity: 0.72;
+    transform: translateY(10px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes royal-seal-ring-expand {
+  0% {
+    opacity: 0;
+    transform: scale(0.78);
+  }
+
+  35% {
+    opacity: 0.9;
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.28);
+  }
+}
+
+@keyframes royal-seal-caption-reveal {
+  to {
+    opacity: 0.88;
+    transform: translateY(0);
+  }
+}
+
+@keyframes royal-seal-float {
   0%,
   100% {
-    opacity: 0.58;
-    transform: scale(0.96);
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes royal-seal-glow {
+  0%,
+  100% {
+    opacity: 0.82;
+    box-shadow:
+      0 0 0 8px rgba(195, 160, 90, 0.08),
+      0 0 30px rgba(222, 197, 138, 0.34);
+    transform: scale(0.99);
   }
 
   50% {
     opacity: 1;
-    transform: scale(1.08);
+    box-shadow:
+      0 0 0 11px rgba(195, 160, 90, 0.12),
+      0 0 48px rgba(243, 221, 167, 0.58);
+    transform: scale(1.035);
   }
 }
 
@@ -283,6 +357,18 @@ textarea {
   transform: translateY(-2px) scale(1.02);
 }
 
+.opening-seal-button:active .opening-seal {
+  filter: drop-shadow(0 8px 14px rgba(62, 20, 33, 0.28));
+  transform: translateY(2px) scale(0.94);
+  transition-duration: 80ms;
+}
+
+.opening-seal-button:active .royal-seal-aura {
+  animation: none;
+  opacity: 0.88;
+  transform: scale(0.92);
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -297,6 +383,21 @@ textarea {
   .opening-seal {
     transform: none;
     transition: none;
+  }
+
+  .opening-seal-button {
+    animation: none;
+  }
+
+  .opening-seal-visual,
+  .opening-seal-intro-ring,
+  .opening-seal-caption {
+    animation: none;
+  }
+
+  .opening-seal-caption {
+    opacity: 0.88;
+    transform: none;
   }
 
   .royal-arch-frame {

@@ -72,7 +72,7 @@ export function InvitationOpeningOverlay({
             </p>
             <p className="text-[0.55rem] uppercase tracking-[0.4em] text-[#f2e7d3]/72">and</p>
             <p className="font-display text-[1.75rem] leading-none text-[#dec58a] sm:text-[2.35rem]">
-              Aslam <span className="text-[#fffaf1]">&amp;</span> Shahadiya
+              Aslam <span className="text-[#fffaf1]">&amp;</span> Shahadhiya
             </p>
           </div>
 
@@ -83,12 +83,18 @@ export function InvitationOpeningOverlay({
           <button
             type="button"
             onClick={onOpen}
-            aria-label="Open invitation"
+            aria-label="View invitation"
             tabIndex={isOpened ? -1 : 0}
-            className="group relative mt-5 rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-[#dec58a] focus-visible:ring-offset-4 focus-visible:ring-offset-[#531d2d] sm:mt-7"
+            className="opening-seal-button group relative mt-5 flex cursor-pointer touch-manipulation select-none flex-col items-center rounded-[2rem] px-3 pb-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#dec58a] focus-visible:ring-offset-4 focus-visible:ring-offset-[#531d2d] sm:mt-7"
           >
-            <span className="royal-seal-aura absolute inset-1 rounded-full" />
-            <ASMonogramSeal className="opening-seal relative h-24 w-24 sm:h-32 sm:w-32" />
+            <span className="opening-seal-visual relative block h-24 w-24 sm:h-32 sm:w-32">
+              <span className="opening-seal-intro-ring absolute inset-1 rounded-full" />
+              <span className="royal-seal-aura absolute inset-1 rounded-full" />
+              <ASMonogramSeal className="opening-seal relative h-full w-full" />
+            </span>
+            <span className="opening-seal-caption mt-2 text-[0.52rem] uppercase tracking-[0.32em] text-[#f3dda7] sm:mt-3 sm:text-[0.62rem]">
+              View invitation
+            </span>
           </button>
         </div>
       </div>

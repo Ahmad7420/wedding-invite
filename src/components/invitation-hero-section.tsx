@@ -38,7 +38,7 @@ export function InvitationHeroSection() {
               <h2 className="font-display text-4xl leading-none text-[#531d2d] sm:text-6xl lg:text-7xl">
                 Aslam
                 <span className="mx-3 inline-block text-[#c3a05a]">&amp;</span>
-                Shahadiya
+                Shahadhiya
               </h2>
             </div>
             <p className="mx-auto max-w-xl text-base leading-8 text-[#6d5a50] sm:text-lg">
