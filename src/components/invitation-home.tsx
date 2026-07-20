@@ -14,6 +14,18 @@ export function InvitationHome() {
   const [isOpened, setIsOpened] = useState(false);
 
   useEffect(() => {
+    if (isOpened) {
+      return;
+    }
+
+    const autoOpenTimer = window.setTimeout(() => {
+      setIsOpened(true);
+    }, 5_000);
+
+    return () => window.clearTimeout(autoOpenTimer);
+  }, [isOpened]);
+
+  useEffect(() => {
     const originalOverflow = document.body.style.overflow;
 
     if (!isOpened) {
