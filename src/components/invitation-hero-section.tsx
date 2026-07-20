@@ -98,10 +98,10 @@ export function InvitationHeroSection() {
               Explore invitation
             </a>
             <a
-              href="#rsvp"
+              href="#location"
               className="outline-button inline-flex min-h-12 items-center justify-center rounded-full px-6 text-sm font-semibold uppercase tracking-[0.18em] text-[#531d2d]"
             >
-              RSVP section
+              View location
             </a>
           </div>
         </div>

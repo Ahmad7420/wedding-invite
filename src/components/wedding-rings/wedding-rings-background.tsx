@@ -35,7 +35,7 @@ export default function WeddingRingsBackground() {
         </Canvas>
       </motion.div>
       <span className="sr-only">
-        Two old-gold wedding rings float behind the invitation and join after the RSVP section.
+        Two old-gold wedding rings float behind the invitation and join near the closing dua.
       </span>
     </>
   );

@@ -46,8 +46,8 @@ export function InvitationDetailsSection() {
         <aside data-reveal className="royal-card glass-panel mx-auto mt-8 max-w-3xl rounded-[2rem] p-6 text-center sm:p-8">
           <p className="text-xs uppercase tracking-[0.24em] text-[#9a783e]">A note for our guests</p>
           <p className="mt-3 text-base leading-8 text-[#6d5a50]">
-            Please keep us in your duas and use the RSVP section below to share your response with
-            the family.
+            Your presence and prayers will make this blessed gathering even more meaningful to
+            both families.
           </p>
         </aside>
       </div>

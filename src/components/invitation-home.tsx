@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { InvitationDetailsSection } from "@/components/invitation-details-section";
 import { InvitationClosingSection } from "@/components/invitation-closing-section";
 import { InvitationHeroSection } from "@/components/invitation-hero-section";
-import { InvitationLocationRsvpSection } from "@/components/invitation-location-rsvp-section";
+import { InvitationLocationSection } from "@/components/invitation-location-section";
 import { InvitationOpeningOverlay } from "@/components/invitation-opening-overlay";
 import { RoyalDateSection } from "@/components/royal-date-section";
 import { SectionDivider } from "@/components/section-divider";
@@ -77,7 +77,7 @@ export function InvitationHome() {
         <SectionDivider />
         <InvitationDetailsSection />
         <SectionDivider />
-        <InvitationLocationRsvpSection />
+        <InvitationLocationSection />
         <InvitationClosingSection />
       </main>
     </div>
