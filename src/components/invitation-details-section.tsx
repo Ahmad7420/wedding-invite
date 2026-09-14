@@ -1,5 +1,4 @@
 import type { CSSProperties } from "react";
-import { schedule } from "@/components/invitation-content";
 import { RoyalGeometricPattern } from "@/components/royal-geometric-pattern";
 
 export function InvitationDetailsSection() {
@@ -9,7 +8,6 @@ export function InvitationDetailsSection() {
 
       <div className="mx-auto w-full max-w-5xl">
         <header data-reveal className="mx-auto max-w-2xl text-center">
-          <p className="text-xs uppercase tracking-[0.32em] text-[#9a783e]">Order of the day</p>
           <h2 className="mt-4 font-display text-5xl text-[#531d2d] sm:text-6xl">
             The Nikah ceremony
           </h2>
@@ -18,29 +16,22 @@ export function InvitationDetailsSection() {
           </p>
         </header>
 
-        <div className="relative mt-12">
-          <div className="absolute bottom-4 left-[1.15rem] top-4 w-px bg-linear-to-b from-transparent via-[#c3a05a]/65 to-transparent md:bottom-auto md:left-12 md:right-12 md:top-[1.15rem] md:h-px md:w-auto md:bg-linear-to-r" />
-
-          <ol className="grid gap-6 md:grid-cols-2 md:gap-10">
-            {schedule.map((item, index) => (
-              <li
-                key={item.title}
-                data-reveal
-                style={{ "--reveal-delay": `${index * 140}ms` } as CSSProperties}
-                className="relative pl-14 md:pl-0 md:pt-14"
-              >
-                <span className="absolute left-2 top-5 z-10 flex h-6 w-6 items-center justify-center rounded-full border border-[#c3a05a]/70 bg-[#fbf5e9] shadow-[0_0_0_6px_rgba(195,160,90,0.1)] md:left-1/2 md:top-2 md:-translate-x-1/2">
-                  <span className="h-2 w-2 rounded-full bg-[#742b3f]" />
-                </span>
-
-                <article className="royal-card glass-panel rounded-[2rem] p-6 text-left md:text-center">
-                  <p className="text-xs uppercase tracking-[0.26em] text-[#9a783e]">{item.time}</p>
-                  <h3 className="mt-3 font-display text-3xl text-[#531d2d]">{item.title}</h3>
-                  <p className="mt-3 text-sm leading-7 text-[#6d5a50]">{item.text}</p>
-                </article>
-              </li>
-            ))}
-          </ol>
+        <div data-reveal className="royal-card glass-panel mx-auto mt-12 max-w-3xl rounded-[2rem] p-6 text-center sm:p-8">
+            <h3 data-reveal style={{ "--reveal-delay": "120ms" } as CSSProperties} className="font-display text-3xl text-[#531d2d]">Nikah Ceremony</h3>
+            <div className="mt-6 space-y-3 text-base leading-7 text-[#6d5a50]">
+            <p data-reveal style={{ "--reveal-delay": "300ms" } as CSSProperties}>Saturday, 24 October 2026</p>
+            <p data-reveal style={{ "--reveal-delay": "460ms" } as CSSProperties} className="font-semibold text-[#531d2d]">04:30 PM</p>
+            <p data-reveal style={{ "--reveal-delay": "620ms" } as CSSProperties} className="font-display text-2xl text-[#531d2d]">WEDBRIGHT EVENT CENTRE</p>
+            <p data-reveal style={{ "--reveal-delay": "780ms" } as CSSProperties}>Payyanur, Kannur, Kerala 670307</p>
+          </div>
+          <a
+            href="#location"
+            data-reveal
+            style={{ "--reveal-delay": "940ms" } as CSSProperties}
+            className="rose-button mt-6 inline-flex min-h-11 items-center justify-center rounded-full px-6 text-xs font-semibold uppercase tracking-[0.16em]"
+          >
+            View location
+          </a>
         </div>
 
         <aside data-reveal className="royal-card glass-panel mx-auto mt-8 max-w-3xl rounded-[2rem] p-6 text-center sm:p-8">

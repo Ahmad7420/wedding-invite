@@ -1,6 +1,6 @@
 export function SectionDivider() {
   return (
-    <div aria-hidden="true" className="mx-auto flex w-full max-w-md items-center gap-4 px-8 py-3">
+    <div aria-hidden="true" className="section-curtain mx-auto flex w-full max-w-md items-center gap-4 px-8 py-3">
       <span className="h-px flex-1 bg-linear-to-r from-transparent to-[#c3a05a]/55" />
       <svg viewBox="0 0 36 36" className="h-7 w-7 text-[#c3a05a]" fill="none">
         <path d="M18 2L22 12L34 18L22 24L18 34L14 24L2 18L14 12Z" stroke="currentColor" />

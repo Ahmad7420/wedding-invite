@@ -1,14 +1,14 @@
-export const venueMapUrl = "https://maps.app.goo.gl/1E1NHYBQRskuKB9L9";
+export const venueMapUrl = "https://maps.app.goo.gl/6gGd5SeHoyF2b1Mb8";
 
-export const weddingDateIso = "2026-10-24T15:30:00+05:30";
+export const weddingDateIso = "2026-10-24T16:30:00+05:30";
 export const weddingDateLabel = "Saturday, 24 October 2026";
-export const weddingVenue = "Hill View Resort, Pazhayangadi, Kannur";
+export const weddingVenue = "WEDBRIGHT EVENT CENTRE, Payyanur";
 
 const googleCalendarDetails = new URLSearchParams({
   action: "TEMPLATE",
   text: "Ahmad & Shahda · Aslam & Shahadhiya — Nikah Invitation",
   dates: "20261024T100000Z/20261024T120000Z",
-  details: "Join us for two blessed nikah unions. Guests are welcome from 3:30 PM; the nikah begins at 4:00 PM.",
+  details: "Join us for two blessed nikah unions at 4:30 PM.",
   location: weddingVenue,
 });
 
@@ -37,27 +37,10 @@ export const eventMoments = [
     supporting: "A gentle welcome, dua, and the nikah gathering with close family.",
   },
   {
-    label: "Reception Dinner",
-    detail: "Immediately after the ceremony",
-    supporting: "A warm evening of food, blessings, and celebration together.",
-  },
-  {
     label: "Venue",
-    detail: "Hill View Resort",
-    location: "Pazhayangadi, Kannur",
+    detail: "WEDBRIGHT EVENT CENTRE",
+    location: "Payyanur",
     supporting: "Tap the location section below to open directions in Google Maps.",
   },
 ] as const;
 
-export const schedule = [
-  {
-    time: "3:30 PM",
-    title: "Guests arrive",
-    text: "Welcome refreshments and a warm gathering with family and loved ones.",
-  },
-  {
-    time: "4:00 PM",
-    title: "Nikah begins",
-    text: "The ceremony, khutbah, and the official acceptance.",
-  },
-] as const;

@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import {
   googleCalendarUrl,
   venueMapUrl,
@@ -32,7 +33,7 @@ export function InvitationLocationSection() {
           href={venueMapUrl}
           target="_blank"
           rel="noreferrer"
-          aria-label="Open Hill View Resort in Google Maps"
+          aria-label="Open WEDBRIGHT EVENT CENTRE in Google Maps"
           className="absolute inset-0 z-0 rounded-[2.25rem] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#742b3f]"
         />
 
@@ -40,12 +41,12 @@ export function InvitationLocationSection() {
           <div className="flex items-start justify-between gap-5">
             <div>
               <p className="text-xs uppercase tracking-[0.28em] text-[#9a783e]">Location</p>
-              <h2 className="mt-4 font-display text-4xl leading-tight text-[#531d2d] sm:text-[2.6rem]">
-                Hill View Resort
+              <h2 data-reveal style={{ "--reveal-delay": "140ms" } as CSSProperties} className="mt-4 font-display text-4xl leading-tight text-[#531d2d] sm:text-[2.6rem]">
+                WEDBRIGHT EVENT CENTRE
               </h2>
             </div>
             <span className="mt-1 text-[#b18c43]">
-              <LocationPinIcon />
+            <span className="location-pin-pulse"><LocationPinIcon /></span>
             </span>
           </div>
 
@@ -57,21 +58,37 @@ export function InvitationLocationSection() {
             <p className="text-[0.65rem] uppercase tracking-[0.24em] text-[#9a783e]">
               Venue details
             </p>
-            <p className="mt-3 font-display text-2xl text-[#531d2d]">Hill View Resort</p>
+            <p className="mt-3 font-display text-2xl text-[#531d2d]">WEDBRIGHT EVENT CENTRE</p>
             <p className="mt-1 text-[0.62rem] uppercase tracking-[0.18em] text-[#9a783e]">
-              Pazhayangadi, Kannur
+              Payyanur, Kannur, Kerala 670307
             </p>
             <div className="my-4 h-px bg-linear-to-r from-[#c3a05a]/40 to-transparent" />
             <p className="text-sm font-medium text-[#531d2d]">{weddingDateLabel}</p>
             <p className="mt-1 text-sm text-[#6d5a50]">
-              Guests arrive 3:30 PM <span aria-hidden="true">&middot;</span> Nikah 4:00 PM
+              Nikah ceremony 04:30 PM
             </p>
           </div>
 
-          <span className="rose-button mt-6 flex min-h-12 w-full items-center justify-center rounded-full px-6 text-center text-sm font-semibold uppercase tracking-[0.18em]">
-            Open in Google Maps
-          </span>
         </div>
+
+        <div data-reveal style={{ "--reveal-delay": "280ms" } as CSSProperties} className="map-reveal relative z-20 mt-6 overflow-hidden rounded-4xl border border-[#c3a05a]/38 bg-[#fffaf1]/40 shadow-[inset_0_1px_0_rgba(255,250,241,0.34)]">
+          <iframe
+            title="Map showing WEDBRIGHT EVENT CENTRE in Payyanur"
+            src="https://www.google.com/maps?q=WEDBRIGHT%20EVENT%20CENTRE%2C%20Payyanur%2C%20Kannur%2C%20Kerala%20670307&output=embed"
+            className="h-64 w-full border-0 sm:h-80"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
+        </div>
+
+        <a
+          href={venueMapUrl}
+          target="_blank"
+          rel="noreferrer"
+          className="rose-button relative z-20 mt-6 flex min-h-12 w-full items-center justify-center rounded-full px-6 text-center text-sm font-semibold uppercase tracking-[0.18em]"
+        >
+          Open in Google Maps
+        </a>
 
         <div className="relative z-20 mt-4 flex flex-col gap-3 sm:flex-row">
           <a

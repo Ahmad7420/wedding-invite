@@ -143,6 +143,7 @@ export function WeddingRingsScene({ progress }: WeddingRingsSceneProps) {
       meetingLightRef.current.position.set(0, finalY + 0.25, 2.1);
       meetingLightRef.current.intensity = joinProgress * 0.3 + settleProgress * 0.75;
     }
+
   });
 
   return (
