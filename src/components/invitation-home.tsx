@@ -1,85 +1,23 @@
-"use client";
-
-import { useEffect, useState } from "react";
-import { InvitationDetailsSection } from "@/components/invitation-details-section";
-import { InvitationClosingSection } from "@/components/invitation-closing-section";
-import { InvitationHeroSection } from "@/components/invitation-hero-section";
-import { InvitationLocationSection } from "@/components/invitation-location-section";
-import { InvitationOpeningOverlay } from "@/components/invitation-opening-overlay";
-import { RoyalDateSection } from "@/components/royal-date-section";
-import { SectionDivider } from "@/components/section-divider";
-import { WeddingRingsSection } from "@/components/wedding-rings/wedding-rings-section";
+import { BotanicalJourney, OliveSprig } from "@/components/botanical-journey";
+import { WeddingCountdown } from "@/components/wedding-countdown";
+import { basmalaText, googleCalendarUrl, venueMapUrl, weddingDateLabel } from "@/components/invitation-content";
 
 export function InvitationHome() {
-  const [isOpened, setIsOpened] = useState(false);
-
-  useEffect(() => {
-    if (isOpened) {
-      return;
-    }
-
-    const autoOpenTimer = window.setTimeout(() => {
-      setIsOpened(true);
-    }, 5_000);
-
-    return () => window.clearTimeout(autoOpenTimer);
-  }, [isOpened]);
-
-  useEffect(() => {
-    const originalOverflow = document.body.style.overflow;
-
-    if (!isOpened) {
-      document.body.style.overflow = "hidden";
-    }
-
-    return () => {
-      document.body.style.overflow = originalOverflow;
-    };
-  }, [isOpened]);
-
-  useEffect(() => {
-    if (!isOpened) {
-      return;
-    }
-
-    const revealed = new Set<Element>();
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && !revealed.has(entry.target)) {
-            entry.target.classList.add("is-visible");
-            revealed.add(entry.target);
-          }
-        });
-      },
-      { threshold: 0.18 }
-    );
-
-    const elements = document.querySelectorAll("[data-reveal]");
-    elements.forEach((element) => observer.observe(element));
-
-    return () => observer.disconnect();
-  }, [isOpened]);
-
-  return (
-    <div className="relative isolate overflow-x-clip">
-      <InvitationOpeningOverlay isOpened={isOpened} onOpen={() => setIsOpened(true)} />
-      <WeddingRingsSection />
-
-      <main
-        className={`relative z-10 transition-opacity duration-700 ${
-          isOpened ? "opacity-100" : "opacity-40"
-        }`}
-      >
-        <InvitationHeroSection />
-        <SectionDivider />
-        <RoyalDateSection />
-        <SectionDivider />
-        <InvitationDetailsSection />
-        <SectionDivider />
-        <InvitationLocationSection />
-        <InvitationClosingSection />
-      </main>
-    </div>
-  );
+  return <div className="invitation">
+    <a className="skip-link" href="#celebration">Skip to celebration details</a>
+    <header className="site-header"><a className="wordmark" href="#home" aria-label="Habeeb and Riza, home">H <span>&</span> R</a><nav aria-label="Invitation navigation"><a href="#our-invitation">Our invitation</a><a href="#celebration">The day</a><a href="#venue">The venue</a></nav><span className="header-date">28.11.2026</span></header>
+    <BotanicalJourney />
+    <main id="home">
+      <section className="hero" aria-labelledby="couple-names">
+        <div className="hero-botanical hero-botanical-left"><OliveSprig /></div><div className="hero-botanical hero-botanical-right"><OliveSprig /></div><div className="hero-frame" aria-hidden="true" />
+        <div className="hero-content"><p className="arabic basmala" lang="ar" dir="rtl">{basmalaText}</p><p className="eyebrow">With faith, with love, with you</p><h1 id="couple-names"><span>Habeebul Rahiman</span><em>&</em><span>Riza Sajil</span></h1><p className="hero-invite">We’re getting married.<br />And we would love for you to be there.</p><div className="hero-date"><span>Saturday</span><strong>28 November 2026</strong><span>10:30 AM · Taliparamba</span></div><a className="button button-dark" href="#celebration">Celebrate with us <span aria-hidden="true">↗</span></a></div>
+        <a href="#our-invitation" className="scroll-note">Our next chapter <span aria-hidden="true">↓</span></a>
+      </section>
+      <section id="our-invitation" className="invitation-note section-pad"><span className="section-number">01 / OUR INVITATION</span><div className="note-layout"><h2>A new beginning.<br /><em>A shared joy.</em></h2><div className="note-copy"><p>With grateful hearts and the blessings of our families, we invite you to join us as we begin our life together.</p><p>Your presence, love, and duas would mean so much to us on our Nikah day.</p><span className="signature">Habeeb & Riza</span></div></div><div className="family-grid"><article><p className="eyebrow">The groom</p><h3>Habeebul Rahiman <span>CP</span></h3><p>Son of<br /><strong>KPP Jamaluddeen & Mafeeda Jamal</strong></p><p className="family-elders">Grandson of<br />Late KPP Abdulla Haji & KV Abdulla Haji</p></article><div className="family-ampersand" aria-hidden="true">&</div><article><p className="eyebrow">The bride</p><h3>Riza Sajil</h3><p>Daughter of<br /><strong>Sajil Cheriyandi & Ramseena Sajil</strong></p><p className="family-elders">Granddaughter of<br />Late M.K Abdul Azeez & T.P Abdul Salam</p></article></div></section>
+      <section className="verse-section section-pad"><span className="little-flower" aria-hidden="true">✳</span><p className="eyebrow">In affection and mercy</p><p lang="ar" dir="rtl" className="arabic verse-arabic">وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً</p><blockquote>“And He placed between you<br /><em>affection and mercy.”</em></blockquote><cite>Surah Ar-Rum · 30:21</cite></section>
+      <section id="celebration" className="celebration section-pad"><span className="section-number">02 / A DAY TO REMEMBER</span><div className="celebration-heading"><h2>Come for the love.<br /><em>Stay for the celebration.</em></h2><p>{weddingDateLabel}<br />Hajmus Convention Centre</p></div><div className="schedule"><article><span className="schedule-index">01</span><div><p className="eyebrow">The beginning</p><h3>Nikah</h3><p>Join us as we make our promise<br />and begin our journey together.</p></div><time dateTime="2026-11-28T10:30:00+05:30">10:30 <span>AM</span></time></article><article><span className="schedule-index">02</span><div><p className="eyebrow">The gathering</p><h3>Reception</h3><p>Share a meal, a little laughter,<br />and the joy of our special day.</p></div><div className="reception-time"><time dateTime="2026-11-28T12:00:00+05:30">12:00 PM</time><span>to</span><time dateTime="2026-11-28T14:00:00+05:30">2:00 PM</time></div></article></div><div className="countdown-wrap"><p className="eyebrow">Counting the moments until we say qubool</p><WeddingCountdown /></div><div className="calendar-links"><a className="text-link" href={googleCalendarUrl} target="_blank" rel="noreferrer">Add to Google Calendar ↗</a><a className="text-link" href="/calendar.ics" download>Apple / Outlook Calendar ↓</a></div></section>
+      <section id="venue" className="venue-section"><div className="venue-illustration" aria-hidden="true"><OliveSprig /><div className="venue-arch"><svg viewBox="0 0 300 240" fill="none"><path d="M35 211h230M55 211V102h190v109M43 102l107-64 107 64M72 88h156M115 211v-70a35 35 0 0 1 70 0v70M132 211v-66a18 18 0 0 1 36 0v66M75 127h22v42H75zM203 127h22v42h-22zM150 38V18m-7 7h14" stroke="currentColor" strokeWidth="1.4"/><path d="M21 223h258M63 184h37m100 0h37" stroke="currentColor" /></svg><span>A place to come together</span></div></div><div className="venue-copy"><span className="section-number">03 / MEET US HERE</span><h2>Hajmus<br /><em>Convention Centre</em></h2><p className="venue-address">7th Mile, Taliparamba</p><p>We can’t wait to welcome you.<br />Follow the directions below to join our celebration.</p><a className="button button-dark" href={venueMapUrl} target="_blank" rel="noreferrer">Get directions <span aria-hidden="true">↗</span></a><a className="text-link map-link" href={venueMapUrl} target="_blank" rel="noreferrer">Open in Google Maps</a></div></section>
+      <section id="blessing" className="closing section-pad"><div className="closing-monogram" aria-label="H and R"><span>H <em>&</em> R</span></div><p className="eyebrow">Two hearts. One beautiful beginning.</p><h2>Our joy is more complete<br /><em>with you in it.</em></h2><p lang="ar" dir="rtl" className="arabic closing-dua">بَارَكَ اللَّهُ لَكُمَا وَبَارَكَ عَلَيْكُمَا وَجَمَعَ بَيْنَكُمَا فِي خَيْرٍ</p><p className="dua-translation">May Allah bless you both, shower His blessings upon you,<br />and bring you together in goodness.</p><p className="signature">With love, Habeeb & Riza</p><footer><span>28 NOVEMBER 2026</span><span>TALIPARAMBA, KERALA</span></footer></section>
+    </main><a className="mobile-directions" href={venueMapUrl} target="_blank" rel="noreferrer">Venue directions ↗</a>
+  </div>;
 }

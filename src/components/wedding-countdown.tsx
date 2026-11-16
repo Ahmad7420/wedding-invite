@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { weddingDateIso } from "@/components/invitation-content";
+import { weddingDateIso, weddingEndIso } from "@/components/invitation-content";
 
 type CountdownValue = {
   days: number;
@@ -12,11 +12,11 @@ type CountdownValue = {
 
 const targetTime = new Date(weddingDateIso).getTime();
 
-function getCountdown(): CountdownValue | null {
+function getCountdown(): CountdownValue | "celebrating" | "past" {
   const difference = targetTime - Date.now();
 
   if (difference <= 0) {
-    return null;
+    return Date.now() <= new Date(weddingEndIso).getTime() ? "celebrating" : "past";
   }
 
   return {
@@ -35,7 +35,7 @@ const units = [
 ] as const;
 
 export function WeddingCountdown() {
-  const [countdown, setCountdown] = useState<CountdownValue | null | undefined>(undefined);
+  const [countdown, setCountdown] = useState<CountdownValue | "celebrating" | "past" | undefined>(undefined);
 
   useEffect(() => {
     const update = () => setCountdown(getCountdown());
@@ -45,22 +45,22 @@ export function WeddingCountdown() {
     return () => window.clearInterval(timer);
   }, []);
 
-  if (countdown === null) {
+  if (typeof countdown === "string") {
     return (
-      <p className="font-display text-3xl text-[#f3dda7] sm:text-4xl">
-        Today is the blessed day
+      <p className="countdown-message">
+        {countdown === "celebrating" ? "Our celebration is here" : "A beautiful beginning, treasured always"}
       </p>
     );
   }
 
   return (
-    <div className="grid grid-cols-4 gap-2 sm:gap-4" aria-label="Countdown to the Nikah">
+    <div className="countdown" role="timer" aria-label="Countdown to the Nikah">
       {units.map(([key, label]) => (
-        <div key={key} className="royal-countdown-unit rounded-2xl px-2 py-3 text-center sm:px-4 sm:py-4">
-          <span className="block font-display text-2xl tabular-nums text-[#f3dda7] sm:text-4xl">
+        <div key={key} className="countdown-unit">
+          <strong>
             {countdown ? String(countdown[key]).padStart(2, "0") : "--"}
-          </span>
-          <span className="mt-1 block text-[0.48rem] uppercase tracking-[0.18em] text-[#f2e7d3]/68 sm:text-[0.62rem]">
+          </strong>
+          <span>
             {label}
           </span>
         </div>

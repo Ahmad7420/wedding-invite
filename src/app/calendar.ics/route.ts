@@ -1,29 +1,37 @@
+import { calendarDescription, calendarEnd, calendarStart, calendarTitle, weddingVenue } from "@/components/invitation-content";
+
 export const dynamic = "force-static";
+
+function escapeText(value: string) {
+  return value.replace(/\\/g, "\\\\").replace(/\r?\n/g, "\\n").replace(/,/g, "\\,").replace(/;/g, "\\;");
+}
+
+// Fold on UTF-8 byte boundaries to keep calendar files compatible with RFC 5545.
+function foldLine(line: string) {
+  const encoder = new TextEncoder();
+  let result = "";
+  let length = 0;
+  for (const character of line) {
+    const bytes = encoder.encode(character).length;
+    if (length + bytes > 75) { result += "\r\n "; length = 1; }
+    result += character;
+    length += bytes;
+  }
+  return result;
+}
 
 export function GET() {
   const calendar = [
-    "BEGIN:VCALENDAR",
-    "VERSION:2.0",
-    "PRODID:-//Nikah Invitation//EN",
-    "CALSCALE:GREGORIAN",
-    "METHOD:PUBLISH",
-    "BEGIN:VEVENT",
-    "UID:nikah-20261024@wedding-invite",
-    "DTSTAMP:20260717T000000Z",
-    "DTSTART:20261024T110000Z",
-    "DTEND:20261024T130000Z",
-    "SUMMARY:Ahmad & Shahda / Aslam & Shahadhiya - Nikah",
-    "DESCRIPTION:The Nikah begins at 4:30 PM.",
-    "LOCATION:WEDBRIGHT EVENT CENTRE\\, Payyanur\\, Kannur\\, Kerala 670307",
-    "END:VEVENT",
-    "END:VCALENDAR",
-  ].join("\r\n");
-
-  return new Response(`${calendar}\r\n`, {
-    headers: {
-      "Content-Type": "text/calendar; charset=utf-8",
-      "Content-Disposition": 'attachment; filename="nikah-invitation.ics"',
-      "Cache-Control": "public, max-age=86400",
-    },
-  });
+    "BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Habeeb and Riza//Wedding Invitation//EN",
+    "CALSCALE:GREGORIAN", "METHOD:PUBLISH", "BEGIN:VEVENT",
+    "UID:habeeb-riza-20261128@wedding-invite", "DTSTAMP:20261116T000000Z",
+    `DTSTART:${calendarStart}`, `DTEND:${calendarEnd}`,
+    `SUMMARY:${escapeText(calendarTitle)}`, `DESCRIPTION:${escapeText(calendarDescription)}`,
+    `LOCATION:${escapeText(weddingVenue)}`, "END:VEVENT", "END:VCALENDAR",
+  ].map(foldLine).join("\r\n");
+  return new Response(`${calendar}\r\n`, { headers: {
+    "Content-Type": "text/calendar; charset=utf-8",
+    "Content-Disposition": 'attachment; filename="habeeb-riza-invitation.ics"',
+    "Cache-Control": "public, max-age=86400",
+  } });
 }
